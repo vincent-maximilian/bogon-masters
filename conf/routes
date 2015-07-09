@@ -3,10 +3,16 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                           controllers.Application.version
+
+GET     /connect                    controllers.Application.index
 
 # Who are the bogons?
 GET     /version                    controllers.Application.version
+
+GET     /hello/:name                controllers.Application.hello(name: String)
+
+GET     /id/:id                controllers.Application.id(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /blaston/*file               controllers.Assets.versioned(path="/public", file: Asset)
