@@ -19,12 +19,22 @@ class ApplicationSpec extends Specification {
       route(FakeRequest(GET, "/boum")) must beSome.which (status(_) == NOT_FOUND)
     }
 
-    "render the index page" in new WithApplication{
-      val home = route(FakeRequest(GET, "/")).get
+    "respond to the version API" in new WithApplication{
+      val versionRes = route(FakeRequest(GET, "/")).get
 
-      status(home) must equalTo(OK)
-      contentType(home) must beSome.which(_ == "text/html")
-      contentAsString(home) must contain ("Your new application is ready.")
+      status(versionRes) must equalTo(OK)
+      contentType(versionRes) must beSome.which(_ == "application/json")
+      // TODO: Validate JSON
+      // contentAsJson(versionRes) must /("name" -> "Bogon Masters!")
+      //        and /("version" -> "0.1")
+    }
+
+    "render the client app page" in new WithApplication() {
+      val client = route(FakeRequest(GET, "/client")).get
+
+      status(client) must equalTo(OK)
+      contentType(client) must beSome.which(_ == "text/html")
+      contentAsString(client) must contain("Master the Bogons!")
     }
   }
 }
