@@ -25,7 +25,7 @@ class Application extends Controller {
 
   // Server up client-side app code
   def client = Action {
-    Ok(views.html.client("This is your life Charlie Brown"))
+    Ok(views.html.client("Master the Bogons!"))
   }
 
   def version = Action {
