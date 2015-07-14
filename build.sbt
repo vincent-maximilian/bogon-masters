@@ -13,6 +13,9 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
+libraryDependencies += "org.webjars" %% "webjars-play" % "2.4.0-1"
+libraryDependencies += "org.webjars" % "jquery" % "2.1.4"
+
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 // Play provides two styles of routers, one expects its actions to be injected, the
