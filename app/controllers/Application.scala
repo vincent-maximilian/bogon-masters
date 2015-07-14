@@ -23,6 +23,11 @@ class Application extends Controller {
     (in,out)
   }
 
+  // Server up client-side app code
+  def client = Action {
+    Ok(views.html.client("This is your life Charlie Brown"))
+  }
+
   def version = Action {
     Ok(Json.toJson(Map(
       "name" -> "Bogon Masters!",

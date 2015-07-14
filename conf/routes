@@ -7,12 +7,16 @@ GET     /                           controllers.Application.version
 
 GET     /connect                    controllers.Application.index
 
+GET     /client                     controllers.Application.client
+
 # Who are the bogons?
 GET     /version                    controllers.Application.version
 
 GET     /hello/:name                controllers.Application.hello(name: String)
 
-GET     /id/:id                controllers.Application.id(id: Long)
+GET     /id/:id                     controllers.Application.id(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /blaston/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /webjars/*file              controllers.WebJarAssets.at(file)
